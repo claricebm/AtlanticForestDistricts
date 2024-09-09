@@ -1,11 +1,11 @@
-#CARREGANDO PACOTES
+#UPLOADING PACKAGES
 library(tidyverse)
 library(patchwork)
 
-#CARRREGANDO DADOS
+#UPLOADING DATA
 dados_bh<-read.csv("Bairros - Belo Horizonte.csv",sep=";")
 dados_ct<-read.csv("Bairros - Curitiba.csv",sep=";")
-dados_jp<-read.csv("Bairros - João Pessoa.csv",sep=";")
+dados_jp<-read.csv("Bairros - JoÃ£o Pessoa.csv",sep=";")
 dados_mc<-read.csv("Bairros - Maceio.csv",sep=";")
 dados_nt<-read.csv("Bairros - Natal.csv",sep=";")
 dados_rj<-read.csv("Bairros - Rio de Janeiro.csv",sep=";")
@@ -13,7 +13,7 @@ dados_ssa<-read.csv("Bairros - Salvador.csv",sep=";")
 dados_sp<-read.csv("Distritos - Sao Paulo.csv",sep=";")
 dados_vt<-read.csv("Bairros - Vitoria.csv",sep=";")
 
-#PROCESSANDO DADOS
+#PROCESSING DATA
 
 #BH
 dados_bh_novo <- dados_bh %>%
@@ -34,9 +34,9 @@ plot_bh<-ggplot(dados_bh_novo, aes(x = AREA_KM2)) +
              linetype = "dashed",                
              linewidth = 1) +                          
   labs(title = "Belo Horizonte", 
-       subtitle = "20.50% dos bairros com área maior ou igual a 1km²",
+       subtitle = "20.50% dos bairros com Ã¡rea maior ou igual a 1kmÂ²",
        x = "",                          
-       y = "Frequência",                           
+       y = "FrequÃªncia",                           
        caption = "Total de 493 bairros") +  
   theme_minimal() +                               
   theme(plot.title = element_text(size = 16,      
@@ -63,7 +63,7 @@ plot_ct<-ggplot(dados_ct_novo, aes(x = area_km2)) +
              linetype = "dashed",                
              linewidth = 1) +                          
   labs(title = "Curitiba", 
-       subtitle = "97.33% dos bairros com área maior ou igual a 1km²",
+       subtitle = "97.33% dos bairros com Ã¡rea maior ou igual a 1kmÂ²",
        x = "",                          
        y = "",                           
        caption = "Total de 75 bairros") +  
@@ -73,7 +73,7 @@ plot_ct<-ggplot(dados_ct_novo, aes(x = area_km2)) +
         axis.text = element_text(size = 12),      
         axis.title = element_text(size = 13))     
 
-#João Pessoa
+#JoÃ£o Pessoa
 dados_jp_novo <- dados_jp %>%
   select(N_BAIRRO, area_km2) %>%
   mutate(area_km2 = as.numeric(gsub(",", ".", area_km2)))
@@ -91,8 +91,8 @@ plot_jp<-ggplot(dados_jp_novo, aes(x = area_km2)) +
              color = "red",                       
              linetype = "dashed",                
              linewidth = 1) +                          
-  labs(title = "João Pessoa", 
-       subtitle = "75% dos bairros com área maior ou igual a 1km²",
+  labs(title = "JoÃ£o Pessoa", 
+       subtitle = "75% dos bairros com Ã¡rea maior ou igual a 1kmÂ²",
        x = "",                          
        y = "",                           
        caption = "Total de 64 bairros") +  
@@ -104,10 +104,10 @@ plot_jp<-ggplot(dados_jp_novo, aes(x = area_km2)) +
 
 #Maceio
 dados_mc_novo <- dados_mc %>%
-  select(ï..Bairro, area_km2) %>%
+  select(Ã¯..Bairro, area_km2) %>%
   mutate(area_km2 = as.numeric(gsub(",", ".", area_km2)))
 
-n_bairros_mc<-length(unique(dados_mc_novo$ï..Bairro))
+n_bairros_mc<-length(unique(dados_mc_novo$Ã¯..Bairro))
 bairros_mc_maior_1km2<-length(which(dados_mc_novo$area_km2>=1))
 porcentagem_mc<-(bairros_mc_maior_1km2/n_bairros_mc)*100
 
@@ -120,10 +120,10 @@ plot_mc<-ggplot(dados_mc_novo, aes(x = area_km2)) +
              color = "red",                       
              linetype = "dashed",                
              linewidth = 1) +                          
-  labs(title = "Maceió", 
-       subtitle = "80% dos bairros com área maior ou igual a 1km²",
+  labs(title = "MaceiÃ³", 
+       subtitle = "80% dos bairros com Ã¡rea maior ou igual a 1kmÂ²",
        x = "",                          
-       y = "Frequência",                           
+       y = "FrequÃªncia",                           
        caption = "Total de 50 bairros") +  
   theme_minimal() +                               
   theme(plot.title = element_text(size = 16,      
@@ -133,10 +133,10 @@ plot_mc<-ggplot(dados_mc_novo, aes(x = area_km2)) +
 
 #Natal
 dados_nt_novo <- dados_nt %>%
-  select(ï..BAIRRO, area_km2) %>%
+  select(Ã¯..BAIRRO, area_km2) %>%
   mutate(area_km2 = as.numeric(gsub(",", ".", area_km2)))
 
-n_bairros_nt<-length(unique(dados_nt_novo$ï..BAIRRO))
+n_bairros_nt<-length(unique(dados_nt_novo$Ã¯..BAIRRO))
 bairros_nt_maior_1km2<-length(which(dados_nt_novo$area_km2>=1))
 porcentagem_nt<-(bairros_nt_maior_1km2/n_bairros_nt)*100
 
@@ -150,7 +150,7 @@ plot_nt<-ggplot(dados_nt_novo, aes(x = area_km2)) +
              linetype = "dashed",                
              linewidth = 1) +                          
   labs(title = "Natal", 
-       subtitle = "77.78% dos bairros com área maior ou igual a 1km²",
+       subtitle = "77.78% dos bairros com Ã¡rea maior ou igual a 1kmÂ²",
        x = "",                          
        y = "",                           
        caption = "Total de 36 bairros") +  
@@ -179,7 +179,7 @@ plot_rj<-ggplot(dados_rj_novo, aes(x = area_km2)) +
              linetype = "dashed",                
              linewidth = 1) +                          
   labs(title = "Rio de Janeiro", 
-       subtitle = "82.32% dos bairros com área maior ou igual a 1km²",
+       subtitle = "82.32% dos bairros com Ã¡rea maior ou igual a 1kmÂ²",
        x = "",                          
        y = "",                           
        caption = "Total de 164 bairros") +  
@@ -208,9 +208,9 @@ plot_ssa<-ggplot(dados_ssa_novo, aes(x = area_km2)) +
              linetype = "dashed",                
              linewidth = 1) +                          
   labs(title = "Salvador", 
-       subtitle = "45.96% dos bairros com área maior ou igual a 1km²",
-       x = "Área (km²)",                          
-       y = "Frequência",                           
+       subtitle = "45.96% dos bairros com Ã¡rea maior ou igual a 1kmÂ²",
+       x = "Ãrea (kmÂ²)",                          
+       y = "FrequÃªncia",                           
        caption = "Total de 161 bairros") +  
   theme_minimal() +                               
   theme(plot.title = element_text(size = 16,      
@@ -220,10 +220,10 @@ plot_ssa<-ggplot(dados_ssa_novo, aes(x = area_km2)) +
 
 #Sao Paulo
 dados_sp_novo <- dados_sp %>%
-  select(ï..sp_nome, sp_areakmt) %>%
+  select(Ã¯..sp_nome, sp_areakmt) %>%
   mutate(sp_areakmt = as.numeric(gsub(",", ".", sp_areakmt)))
 
-n_bairros_sp<-length(unique(dados_sp_novo$ï..sp_nome))
+n_bairros_sp<-length(unique(dados_sp_novo$Ã¯..sp_nome))
 bairros_sp_maior_1km2<-length(which(dados_sp_novo$sp_areakmt>=1))
 porcentagem_mc<-(bairros_sp_maior_1km2/n_bairros_sp)*100
 
@@ -236,9 +236,9 @@ plot_sp<-ggplot(dados_sp_novo, aes(x = sp_areakmt)) +
              color = "red",                       
              linetype = "dashed",                
              linewidth = 1) +                          
-  labs(title = "São Paulo", 
-       subtitle = "100% dos distritos com área maior ou igual a 1km²",
-       x = "Área (km²)",                          
+  labs(title = "SÃ£o Paulo", 
+       subtitle = "100% dos distritos com Ã¡rea maior ou igual a 1kmÂ²",
+       x = "Ãrea (kmÂ²)",                          
        y = "",                           
        caption = "Total de 32 distritos") +  
   theme_minimal() +                               
@@ -249,10 +249,10 @@ plot_sp<-ggplot(dados_sp_novo, aes(x = sp_areakmt)) +
 
 #Vitoria
 dados_vt_novo <- dados_vt %>%
-  select(ï..nome, area_km2) %>%
+  select(Ã¯..nome, area_km2) %>%
   mutate(area_km2 = as.numeric(gsub(",", ".", area_km2)))
 
-n_bairros_vt<-length(unique(dados_vt_novo$ï..nome))
+n_bairros_vt<-length(unique(dados_vt_novo$Ã¯..nome))
 bairros_vt_maior_1km2<-length(which(dados_vt_novo$area_km2>=1))
 porcentagem_vt<-(bairros_vt_maior_1km2/n_bairros_vt)*100
 
@@ -265,9 +265,9 @@ plot_vt<-ggplot(dados_vt_novo, aes(x = area_km2)) +
              color = "red",                       
              linetype = "dashed",                
              linewidth = 1) +                          
-  labs(title = "Vitória", 
-       subtitle = "13.75% dos bairros com área maior ou igual a 1km²",
-       x = "Área (km²)",                          
+  labs(title = "VitÃ³ria", 
+       subtitle = "13.75% dos bairros com Ã¡rea maior ou igual a 1kmÂ²",
+       x = "Ãrea (kmÂ²)",                          
        y = "",                           
        caption = "Total de 80 bairros") +  
   theme_minimal() +                               
@@ -276,7 +276,7 @@ plot_vt<-ggplot(dados_vt_novo, aes(x = area_km2)) +
         axis.text = element_text(size = 12),      
         axis.title = element_text(size = 13))    
 
-#CRIANDO IMAGEM UNICA
+#GETTING EVERYTHING TOGETHER INTO ONE SINGLE IMAGE
 combined_plot <- (plot_bh | plot_ct | plot_jp) /  
   (plot_mc | plot_nt | plot_rj) /  
   (plot_ssa | plot_sp | plot_vt)   
